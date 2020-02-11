@@ -11,13 +11,15 @@ import javax.persistence.Table;
 
 import com.adminportal.domain.User;
 
+
 @Entity
-@Table(name = "user_role")
+@Table(name="user_role")
 public class UserRole {
-	
+
 	@Id
-	@GeneratedValue(strategy= GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long userRoleId;
+	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="user_id")
 	private User user;
@@ -28,11 +30,10 @@ public class UserRole {
 	
 	public UserRole(){}
 	
-	 public UserRole(User user,Role role) {
-		 this.user = user;
-		 this.role =role;
-	 }
-
+	public UserRole(User user, Role role) {
+		this.user = user;
+		this.role = role;
+	}
 
 
 	public Long getUserRoleId() {
@@ -40,11 +41,9 @@ public class UserRole {
 	}
 
 
-
 	public void setUserRoleId(Long userRoleId) {
 		this.userRoleId = userRoleId;
 	}
-
 
 
 	public User getUser() {
@@ -52,11 +51,9 @@ public class UserRole {
 	}
 
 
-
 	public void setUser(User user) {
 		this.user = user;
 	}
-
 
 
 	public Role getRole() {
@@ -64,12 +61,9 @@ public class UserRole {
 	}
 
 
-
 	public void setRole(Role role) {
 		this.role = role;
 	}
 	
 	
-	
-
 }

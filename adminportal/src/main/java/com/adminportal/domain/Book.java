@@ -13,7 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class Book {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	private String title;
 	private String author;
@@ -29,9 +29,10 @@ public class Book {
 	private double ourPrice;
 	private boolean active=true;
 	
-	@Column(columnDefinition = "text")
+	@Column(columnDefinition="text")
 	private String description;
 	private int inStockNumber;
+	
 	@Transient
 	private MultipartFile bookImage;
 
@@ -170,7 +171,6 @@ public class Book {
 	public void setBookImage(MultipartFile bookImage) {
 		this.bookImage = bookImage;
 	}
-	
 	
 	
 }
