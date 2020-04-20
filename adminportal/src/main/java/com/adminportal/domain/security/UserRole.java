@@ -17,7 +17,7 @@ import com.adminportal.domain.User;
 public class UserRole {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long userRoleId;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
