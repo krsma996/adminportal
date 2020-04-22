@@ -21,42 +21,43 @@ import com.adminportal.service.BookService;
 @Controller
 @RequestMapping("/book")
 public class BookController {
+
 	@Autowired
 	private BookService bookService;
-	
-	
-	@RequestMapping(value="/add",method=RequestMethod.GET)
+
+	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String addBook(Model model) {
 		Book book = new Book();
 		model.addAttribute("book", book);
 		return "addBook";
 	}
-	
-	@RequestMapping(value="/add",method=RequestMethod.POST)
-	public String addBookPost(
-			@ModelAttribute("book") Book book, HttpServletRequest request
-			) {
+
+	@RequestMapping(value = "/add", method = RequestMethod.POST)
+	public String addBookPost(@ModelAttribute("book") Book book, HttpServletRequest request) {
 		bookService.save(book);
+
 		MultipartFile bookImage = book.getBookImage();
+
 		try {
 			byte[] bytes = bookImage.getBytes();
-			String name = book.getId()+".png";
-			BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(new File("src/main/resources/static/image/book/" +name)));
+			String name = book.getId() + ".png";
+			BufferedOutputStream stream = new BufferedOutputStream(
+					new FileOutputStream(new File("src/main/resources/static/image/book/" + name)));
 			stream.write(bytes);
 			stream.close();
-		}catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		
+
 		return "redirect:bookList";
 	}
 	
-	@RequestMapping("bookList")
+	@RequestMapping("/bookList")
 	public String bookList(Model model) {
-		/* List<Book> bookList = bookService.findAll(); */
-		
+		List<Book> bookList = bookService.findAll();
+		model.addAttribute("bookList", bookList);		
 		return "bookList";
+		
 	}
 
 }
