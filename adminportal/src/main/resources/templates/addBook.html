@@ -12,7 +12,7 @@
 				enctype="multipart/form-data">
 				<fieldset>
 					<legend class="center-block">
-						New Book Information <span style="font-size: small"> * is a
+						New Book Information<span style="font-size: small"> * is a
 							required field</span>
 					</legend>
 
@@ -20,9 +20,8 @@
 					<!-- title -->
 					<div class="form-group">
 						<label class="col-md-2 control-label" for="title">* Title</label>
+
 						<div class="col-md-8">
-
-
 							<input type="text" name="title" class="form-control" id="title"
 								th:value="${book.title}" required="required" placeholder="Title" />
 							<span class="help-block">Title of the book</span>
@@ -51,14 +50,15 @@
 								of the book</span>
 						</div>
 					</div>
+
 					<!-- publication date -->
 					<div class="form-group">
 						<label class="col-md-2 control-label" for="publicationDate">Publication
 							Date</label>
 						<div class="col-md-8">
-							<input type="date" name="publicationDate" class="form-control"
-								id="publicationDate" th:value="${book.publicationDate}"
-								placeholder="Publication Date" /> <span class="help-block">Publication
+							<input type="date" class="form-control" id="publicationDate"
+								name="publicationDate" th:value="${book.publicationDate}"
+								placeholder="ublication Date" /> <span class="help-block">Publication
 								Date of the book</span>
 						</div>
 					</div>
@@ -99,24 +99,26 @@
 						</div>
 					</div>
 
-					<!-- Pages -->
+					<!-- pages -->
 					<div class="form-group">
 						<label class="col-md-2 control-label" for="pageNumber">Pages</label>
+
 						<div class="col-md-8">
-							<input type="number" class="form-control" id="pageNumber"
-								name="numberOfPages" th:value="${book.numberOfPages}"
+							<input type="number" name="numberOfPages" class="form-control"
+								id="pageNumber" th:value="${book.numberOfPages}"
 								placeholder="Page Number" /> <span class="help-block">Number
 								of pages of the book</span>
 						</div>
 					</div>
-					<!-- Format -->
+
+					<!-- format -->
 					<div class="form-group">
 						<label class="col-md-2 control-label" for="format">Format</label>
 						<div class="col-md-8">
 							<select th:value="${book.format}" id="format" name="format"
 								class="form-control">
 								<option value="paperback">Paperback</option>
-								<option value="Hardcover">Hardcover</option>
+								<option value="hardcover">Hardcover</option>
 							</select>
 						</div>
 					</div>
@@ -124,17 +126,19 @@
 					<!-- isbn -->
 					<div class="form-group">
 						<label class="col-md-2 control-label" for="isbn">ISBN</label>
+
 						<div class="col-md-8">
 							<input type="text" name="isbn" class="form-control" id="isbn"
 								th:value="${book.isbn}" placeholder="ISBN" /> <span
 								class="help-block">ISBN of the book</span>
 						</div>
 					</div>
+
 					<!-- shipping weight -->
 					<div class="form-group">
 						<label class="col-md-2 control-label" for="shippingWeight">Shipping
 							Weight</label>
-						<div class="col-md-8 ">
+						<div class="col-md-8">
 							<div class="input-group">
 								<input th:value="${book.shippingWeight}" type="number"
 									name="shippingWeight" class="form-control" id="shippingWeight"
@@ -145,50 +149,50 @@
 						</div>
 					</div>
 
-					<!-- List Price -->
+					<!-- list price -->
 					<div class="form-group">
 						<label class="col-md-2 control-label" for="listPrice">List
-							Price </label>
-						<div class="col-md-8 ">
+							Price</label>
+						<div class="col-md-8">
 							<div class="input-group">
-								<span class="input-group-addon">$</span> <input name="listPrice"
-									th:value="${book.listPrice}" type="number" class="form-control"
-									id="listPrice" placeholder="List Price" />
+								<span class="input-group-addon">$</span> <input
+									th:value="${book.listPrice}" type="number" name="listPrice"
+									class="form-control" id="listPrice" placeholder="List Price" />
 							</div>
-							<span class="help-block">List Price of the book</span>
+							<span class="help-block">List price of the book</span>
 						</div>
 					</div>
 
 					<!-- our price -->
 					<div class="form-group">
 						<label class="col-md-2 control-label" for="ourPrice">Our
-							Price </label>
-						<div class="col-md-8 ">
+							Price</label>
+						<div class="col-md-8">
 							<div class="input-group">
-								<span class="input-group-addon">$</span> <input name="ourPrice"
-									th:value="${book.ourPrice}" type="number" class="form-control"
-									id="ourPrice" placeholder="Our Price" />
+								<span class="input-group-addon">$</span> <input
+									th:value="${book.ourPrice}" type="number" name="ourPrice"
+									class="form-control" id="ourPrice" placeholder="Our Price" />
 							</div>
-							<span class="help-block">Our Price of the book</span>
+							<span class="help-block">Our price of the book</span>
 						</div>
 					</div>
 
 					<!-- in stock number -->
 					<div class="form-group">
-						<label class="col-md-2 control-label" for="ourPrice">Number
-							in Stock </label>
-						<div class="col-md-8 ">
-							<input name="inStockNumber" th:value="${book.inStockNumber}"
-								type="number" class="form-control" id="inStockNumber"
-								placeholder="Number in stock copies" /> <span
-								class="help-block">Number in stock copies</span>
+						<label class="col-md-2 control-label" for="inStockNumber">Number
+							in stock</label>
+						<div class="col-md-8">
+							<input th:value="${book.inStockNumber}" type="number"
+								name="inStockNumber" class="form-control" id="inStockNumber"
+								placeholder="Number of in-stock copies" /> <span
+								class="help-block">Number of in-stock copies</span>
 						</div>
 					</div>
 
 					<!-- status of book -->
 					<div class="form-group">
 						<label class="col-md-2 control-label" for="status">Status</label>
-						<div class="col-mds-8">
+						<div class="col-md-8">
 							<label><input value="true" type="radio" name="active"
 								checked="checked" /> Active </label> <label><input
 								value="false" type="radio" name="active" />
@@ -197,7 +201,7 @@
 						</div>
 					</div>
 
-					<!-- Description -->
+					<!-- description -->
 					<div class="form-group">
 						<label class="col-md-2 control-label" for="description">Description</label>
 						<div class="col-md-8">
@@ -208,10 +212,10 @@
 						</div>
 					</div>
 
-					<!-- Upload Image -->
+					<!-- upload image -->
 					<div class="form-group">
 						<div class="col-md-2">
-							<label for="bookImage">Upload book Image</label>
+							<label for="bookImage">Upload book image</label>
 						</div>
 						<div class="col-md-8">
 							<input id="bookImage" type="file" name="bookImage"
@@ -219,12 +223,11 @@
 						</div>
 					</div>
 
-
 					<div class="form-group">
 						<div class="col-md-2"></div>
 						<div class="col-md-8">
 							<button type="submit" class="btn btn-success">Add Book</button>
-							<a class="btn-btn-danger" th:href="@{/}">Cancel</a>
+							<a class="btn btn-danger" th:href="@{/}">Cancel</a>
 						</div>
 					</div>
 				</fieldset>
