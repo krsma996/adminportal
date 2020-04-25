@@ -22,4 +22,13 @@ public class BookServiceImpl implements BookService{
 	public List<Book> findAll() {
 		return (List<Book>) bookRepository.findAll();
 	}
+
+	@Override
+	public Book findOne(Long id) {
+		// TODO Auto-generated method stub
+		return  bookRepository.findOne(id);
+	}
+	
+	
+	
 }
