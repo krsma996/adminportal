@@ -1,4 +1,5 @@
 package com.adminportal.domain;
+
 import java.util.List;
 
 import javax.persistence.Column;
