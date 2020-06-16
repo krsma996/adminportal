@@ -28,6 +28,12 @@ public class BookServiceImpl implements BookService{
 		// TODO Auto-generated method stub
 		return  bookRepository.findOne(id);
 	}
+
+	@Override
+	public void removeOne(Long id) {
+		bookRepository.delete(id);
+		
+	}
 	
 	
 	

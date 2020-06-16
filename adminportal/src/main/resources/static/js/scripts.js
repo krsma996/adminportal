@@ -3,91 +3,96 @@
  */
 
 $(document).ready(function() {
-   $('.delete-book').on('click', function(){
-	   /*<![CDATA[*/
-		var path= /*[[@{/}]]*/ 'remove';
-		/*]]>*/
+	$('.delete-book').on('click', function (){
+		/*<![CDATA[*/
+	    var path = /*[[@{/}]]*/'remove';
+	    /*]]>*/
 		
 		var id=$(this).attr('id');
 		
 		bootbox.confirm({
-			message: "Are you sure to remove this book? It can't be undone."
+			message: "Are you sure to remove this book? It can't be undone.",
 			buttons: {
 				cancel: {
-					label: '<i class="fa fa-times"></i> Cancel'
+					label:'<i class="fa fa-times"></i> Cancel'
 				},
-				confirm:{
-					label: '<i class="fa fa-check"></i> Confirm'
+				confirm: {
+					label:'<i class="fa fa-check"></i> Confirm'
 				}
-				
-			}
-			
+			},
 			callback: function(confirmed) {
-				if(confirmed){
+				if(confirmed) {
 					$.post(path, {'id':id}, function(res) {
-					 location.reload();	
+						location.reload();
 					});
 				}
 			}
-			
 		});
-   });	
-
+	});
 	
 	
-	var bookIdList=[];
 	
-	#('.checkboxBook').click(function() {
-		var id=$(this).attr('id');
-		if(this.checked){
-			bookIdList.push(id);
-		}else{
-			bookIdList.splice(bookIdList.indexOf(id), 1);
-		}
-	})
+//	$('.checkboxBook').click(function () {
+//        var id = $(this).attr('id');
+//        if(this.checked){
+//            bookIdList.push(id);
+//        }
+//        else {
+//            bookIdList.splice(bookIdList.indexOf(id), 1);
+//        }
+//    })
 	
 	$('#deleteSelected').click(function() {
+		var idList= $('.checkboxBook');
+		var bookIdList=[];
+		for (var i = 0; i < idList.length; i++) {
+			if(idList[i].checked==true) {
+				bookIdList.push(idList[i]['id'])
+			}
+		}
+		
+		console.log(bookIdList);
+		
 		/*<![CDATA[*/
-		var path= /*[[@{/}]]*/ 'removeList';
-		/*]]>*/
-		bootbox.confirm({
-			message: "Are you sure to remove all selected books? It can't be undone."
+	    var path = /*[[@{/}]]*/'removeList';
+	    /*]]>*/
+	    
+	    bootbox.confirm({
+			message: "Are you sure to remove all selected books? It can't be undone.",
 			buttons: {
 				cancel: {
-					label: '<i class="fa fa-times"></i> Cancel'
+					label:'<i class="fa fa-times"></i> Cancel'
 				},
-				confirm:{
-					label: '<i class="fa fa-check"></i> Confirm'
+				confirm: {
+					label:'<i class="fa fa-check"></i> Confirm'
 				}
-				
-			}
-			
+			},
 			callback: function(confirmed) {
-				if(confirmed){
+				if(confirmed) {
 					$.ajax({
 						type: 'POST',
 						url: path,
-						date: JSON.stringify(bookIdList),
+						data: JSON.stringify(bookIdList),
 						contentType: "application/json",
-						success: function(res) {console.log(res); location.reload()},
-						error: function(res){console.log(res); location.reload();}
-							
-						
+						success: function(res) {
+							console.log(res); 
+							location.reload()
+							},
+						error: function(res){
+							console.log(res); 
+							location.reload();
+							}
 					});
 				}
 			}
-			
 		});
-		
 	});
-	$("selectAllBook").click(function() {
-		if($(this).prop("checked")==true){
-			$(".checkBox").click();
-		}else if{
-			($(this).prop("checked")==false){
-				$(".checkBox").click();
-			}
+	
+	$("#selectAllBooks").click(function() {
+		if($(this).prop("checked")==true) {
+			$(".checkboxBook").prop("checked",true);
+		} else if ($(this).prop("checked")==false) {
+			$(".checkboxBook").prop("checked",false);
 		}
 	})
-	
 });
