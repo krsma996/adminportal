@@ -21,7 +21,7 @@ Also you can add image of the book and updating the image of the book.
 ----------------------
 After the first book you added from admin page, you need to restart the server in sts for adding new book.
 
-MAKE SURE It is PNG FILE !! or it will not show in list 
+MAKE SURE It is PNG FILE !! or it will not show the picture in list of books !!
 
 
 
