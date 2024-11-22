@@ -1,7 +1,8 @@
-AdminPortal for Bookstore Application
-AdminPortal is a standalone web application designed to manage the books for the Bookstore Application. The AdminPortal enables administrators to perform CRUD (Create, Read, Update, Delete) operations on books, including managing book details and uploading cover images.
+# AdminPortal for Bookstore Application
+AdminPortal is a standalone web application designed to manage the books for the Bookstore Application. 
+The AdminPortal enables administrators to perform CRUD (Create, Read, Update, Delete) operations on books, including managing book details and uploading cover images.
 
-Note:
+#Note:
 AdminPortal and Bookstore are separate projects that run on the same database but different localhost ports:
 
 AdminPortal: http://localhost:8081
@@ -9,23 +10,23 @@ Bookstore: http://localhost:8080
 Prerequisites
 Before running the AdminPortal, ensure the following:
 
-The Bookstore Application is running to initialize database tables.
+#The Bookstore Application is running to initialize database tables.
 Copy the dependencies and server configuration from the pom.xml file of the Bookstore project to the AdminPortal project to avoid errors in Spring Tool Suite (STS).
 Features
 Add Books
 
-Add new books to the database, including title, author, price, and other details.
+#Add new books to the database, including title, author, price, and other details.
 Upload a cover image for the book (only PNG files are supported).
 Update Books
 
-Edit existing book details.
+#Edit existing book details.
 Replace or update the book's cover image.
 Delete Books
 
-Remove books from the database.
+#Remove books from the database.
 Image Support
 
-Display book images in the book list. Ensure that the uploaded file is in PNG format.
+#Display book images in the book list. Ensure that the uploaded file is in PNG format.
 Instructions
 Running the Application
 Start the Bookstore Application (http://localhost:8080) to initialize database tables.
